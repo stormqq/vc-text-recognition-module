@@ -1,29 +1,17 @@
 import { StyleSheet, View, Text } from 'react-native';
+import { scanText } from 'react-native-vc-text-recognition-module';
 import {
   Camera,
   useCameraDevice,
   useFrameProcessor,
-  VisionCameraProxy,
-  type Frame,
 } from 'react-native-vision-camera';
-
-// @ts-ignore
-const plugin = VisionCameraProxy.initFrameProcessorPlugin('detectText');
-
-export function detectText(frame: Frame): object {
-  'worklet';
-  if (plugin == null)
-    throw new Error('Failed to load Frame Processor Plugin "scanFaces"!');
-  // @ts-ignore
-  return plugin.call(frame);
-}
 
 export default function App() {
   const device = useCameraDevice('back');
 
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
-    const detectedText: any = detectText(frame);
+    const detectedText: any = scanText(frame);
     console.log('detectedText', detectedText.text);
   }, []);
 
