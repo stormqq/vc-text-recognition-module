@@ -183,5 +183,9 @@
     "type": "module-legacy",
     "languages": "kotlin-objc",
     "version": "0.41.2"
+  },
+  "dependencies": {
+    "react-native-vision-camera": "^4.5.3",
+    "react-native-worklets-core": "^1.3.3"
   }
 }

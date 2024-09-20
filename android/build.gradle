@@ -5,6 +5,7 @@ buildscript {
   repositories {
     google()
     mavenCentral()
+    mavenLocal()
   }
 
   dependencies {
@@ -84,6 +85,7 @@ android {
 
 repositories {
   mavenCentral()
+  mavenLocal()
   google()
 }
 
@@ -95,5 +97,7 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation project(':react-native-vision-camera')
+  implementation 'com.google.android.gms:play-services-mlkit-text-recognition:19.0.1'
 }
 
